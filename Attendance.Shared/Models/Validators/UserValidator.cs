@@ -6,9 +6,7 @@ public class UserValidator : AbstractValidator<User>
 {
     public UserValidator()
     {
-#pragma warning disable CS0618 // Type or member is obsolete
         CascadeMode = CascadeMode.Stop;
-#pragma warning restore CS0618 // Type or member is obsolete
 
         RuleFor(user => user.FirstName)
             .NotEmpty()
