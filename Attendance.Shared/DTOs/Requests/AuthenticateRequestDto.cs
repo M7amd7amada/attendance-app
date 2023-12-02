@@ -1,7 +1,7 @@
 namespace Attendance.Shared.DTOs.Requests;
 
-public record AuthenticateRequest
+public record AuthenticateRequestDto
 {
-    public string UserName { get; set; } = default!;
+    public string Username { get; set; } = default!;
     public string Password { get; set; } = default!;
 }

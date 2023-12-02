@@ -9,19 +9,18 @@ public class RepositoryBase<T> : IRepositoryBase<T> where T : class
 {
     protected readonly AppDbContext _context;
     protected readonly IUnitOfWork _unitOfWork;
-    protected readonly ILogger _logger;
     protected readonly DbSet<T> _entities;
-    public RepositoryBase(AppDbContext context, IUnitOfWork unitOfWork, ILogger logger)
+    public RepositoryBase(AppDbContext context, IUnitOfWork unitOfWork)
     {
         _context = context;
         _unitOfWork = unitOfWork;
-        _logger = logger;
         _entities = _context.Set<T>();
     }
 
     public async Task<T?> AddAsync(T entity)
     {
         await _entities.AddAsync(entity);
+        await _context.SaveChangesAsync();
         return entity;
     }
 

@@ -20,7 +20,7 @@ public class UserValidator : AbstractValidator<User>
             .Length(3, 50)
             .WithMessage("Last name must be between 3 and 50 characters.");
 
-        RuleFor(user => user.UserName)
+        RuleFor(user => user.Username)
             .NotEmpty()
             .WithMessage("User name is a required field.")
             .Length(3, 50)
